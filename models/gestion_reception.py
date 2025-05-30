@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class Gestion_Reception(models.Model):
     _name = "gestion.reception"
@@ -29,6 +30,11 @@ class Gestion_Reception(models.Model):
         ("bon", "Bon"),
         ("mauvais", "Mauvais"),
     ], string="État de la réception")
+    
+    def _check_quantity_stock(self):
+        for record in self:
+            if record.quantite < 5:
+                raise ValidationError("en rupture de stock")
 
     
 
