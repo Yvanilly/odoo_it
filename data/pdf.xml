@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_gestion_vente" model="ir.actions.report">
+        <field name="name">Facture de vente</field>
+        <field name="model">gestion.vente</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">gestion_stock.report_gestion_vente</field>
+        <field name="report_file">gestion_stock.report_gestion_vente</field>
+        <field name="print_report_name">'%s' % (object.name)</field>
+        <field name="binding_model_id" ref="gestion_stock.model_gestion_vente"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_gestion_vente">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <table class="table">
+                            <tr>
+                                <th>Nom articles</th>
+                                <th>Date de vente</th>
+                                <th>prix de vente</th>
+                            </tr>
+                            <tr>
+                                <td><t t-esc="doc.name"/></td>
+                                <td><t t-esc="doc.date_vente"/></td>
+                                <td><t t-esc="doc.prix_unitaire"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

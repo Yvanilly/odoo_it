@@ -1,0 +1,67 @@
+<odoo>
+  <data>
+
+    <!-- Vue liste -->
+    <record id="gestion_vente_tree" model="ir.ui.view">
+      <field name="name">gestion.vente.tree</field>
+      <field name="model">gestion.vente</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="quantite"/>
+          <field name="prix_ht"/>
+          <field name="tva"/>
+          <field name="prix_ttc"/>
+          <field name="unity"/>
+          <field name="date_vente"/>
+          <field name="numero_facture"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="gestion_vente_view_form" model="ir.ui.view">
+      <field name="name">gestion.vente.view.form</field>
+      <field name="model">gestion.vente</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+           <group col="2">
+              <group>
+                <field name="quantite"/>
+                <field name="prix_ht"/>
+                <field name="tva"/>
+                <field name="prix_ttc"/>
+                <field name="prix_unitaire"/>
+              </group>
+              <group>
+                <field name="name"/>
+                <field name="bon_commande"/>
+                <field name="date_vente"/>
+                <field name="image"/>
+                <field name="unity"/>
+                <field name="bon_retour"/>
+            </group>
+           </group>
+            <notebook>
+              <page name="name" string="observation">
+                <field name="observation" />
+              </page>
+            </notebook>
+            <button string="Enregistrer" name="enregistrer" type="object" class="btn btn-primary"/>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Action -->
+    <record id="gestion_vente_action" model="ir.actions.act_window">
+      <field name="name">Ventes</field>
+      <field name="res_model">gestion.vente</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem name="Ventes" id="gestion_vente_menu_root" action="gestion_vente_action"/>
+
+  </data>
+</odoo>

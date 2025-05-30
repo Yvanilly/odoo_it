@@ -1,0 +1,63 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="gestion_achats">
+      <field name="name">gestion achats</field>
+      <field name="model">gestion.achats</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="date_achats"/>
+          <field name="quantite"/>
+          <field name="prix_unitaire"/>
+          <field name="prix_total" sum="Total"/>
+          <field name="image"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="achats_action">
+      <field name="name">gestion_achats window</field>
+      <field name="res_model">gestion.achats</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="gestion_stock.action_server">
+      <field name="name">gestion_stock server</field>
+      <field name="model_id" ref="model_gestion_stock_gestion_stock"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+    <!-- <menuitem name="Menu 1" id="gestion_stock.menu_1" parent="gestion_stock.menu_root"/> -->
+
+    <menuitem name="gestion_achats" id="achats_action_menu_root" action="achats_action"/>
+
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 2" id="gestion_stock.menu_2" parent="gestion_stock.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="gestion_stock.menu_1_list" parent="gestion_stock.menu_1"
+              action="gestion_stock.action_window"/>
+    <menuitem name="Server to list" id="gestion_stock" parent="gestion_stock.menu_2"
+              action="gestion_stock.action_server"/>
+-->
+  </data>
+</odoo>

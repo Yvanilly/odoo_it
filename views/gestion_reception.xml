@@ -1,0 +1,36 @@
+<odoo>
+  <data>
+
+    <!-- Vue liste pour gestion.reception -->
+    <record model="ir.ui.view" id="gestion_reception_tree">
+      <field name="name">gestion reception</field>
+      <field name="model">gestion.reception</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="date_reception"/>
+          <field name="quantite"/>
+          <field name="unity"/>
+          <field name="prix_unitaire"/>
+          <field name="prix_total"/>
+          <field name="etat"/>
+          <field name="magasin"/>
+          <field name="bon_commande"/>
+          <field name="bon_livraison"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Action ouvrant les vues du modèle -->
+    <record model="ir.actions.act_window" id="gestion_reception_action">
+      <field name="name">Réceptions</field>
+      <field name="res_model">gestion.reception</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem name="Réceptions" id="gestion_reception_menu_root" action="gestion_reception_action"/>
+
+  </data>
+</odoo>
+

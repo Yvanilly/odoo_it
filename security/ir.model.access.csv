@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gestion_achats,access_gestion_achats,model_gestion_achats,base.group_user,1,1,1,1
+access_gestion_reception,access_gestion_reception,model_gestion_reception,base.group_user,1,1,1,1
+access_gestion_sortie,access_gestion_sortie,model_gestion_sortie,base.group_user,1,1,1,1
+access_gestion_magasin,access_gestion_magasin,model_gestion_magasin,base.group_user,1,1,1,1
+access_gestion_vente,access_gestion_vente,model_gestion_vente,base.group_user,1,1,1,1

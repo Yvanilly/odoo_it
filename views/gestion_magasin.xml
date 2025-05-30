@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+
+    <!-- Vue liste -->
+    <record id="gestion_magasin_tree" model="ir.ui.view">
+      <field name="name">gestion.magasin.tree</field>
+      <field name="model">gestion.magasin</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="code_bare"/>
+          <field name="quantite_stock"/>
+          <field name="unity"/>
+          <field name="emplacement"/>
+          <field name="seuil_alerte"/>
+          <field name="prix_unitaire"/>
+          <field name="prix_total"/>
+          <field name="etat"/>
+          <field name="date_mise_a_jour"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vue formulaire -->
+    <record id="gestion_magasin_form" model="ir.ui.view">
+      <field name="name">gestion.magasin.form</field>
+      <field name="model">gestion.magasin</field>
+      <field name="arch" type="xml">
+        <form string="Gestion Magasin">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="code_bare"/>
+              <field name="quantite_stock"/>
+              <field name="unity"/>
+              <field name="emplacement"/>
+              <field name="seuil_alerte"/>
+              <field name="prix_unitaire"/>
+              <field name="prix_total" readonly="1"/>
+              <field name="etat" readonly="1"/>
+              <field name="date_mise_a_jour"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Action -->
+    <record id="gestion_magasin_action" model="ir.actions.act_window">
+      <field name="name">Gestion Magasin</field>
+      <field name="res_model">gestion.magasin</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem name="Magasin" id="gestion_magasin_menu_root" action="gestion_magasin_action"/>
+
+  </data>
+</odoo>
+
